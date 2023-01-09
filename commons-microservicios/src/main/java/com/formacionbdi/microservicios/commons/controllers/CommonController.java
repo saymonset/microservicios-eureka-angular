@@ -29,7 +29,7 @@ public class CommonController<E, S extends CommonService<E>> {
 		return ResponseEntity.ok().body(this.service.findAll());
 	}
 
-//	Paginar:page=0, size =6 es la cantidad de paginas comenzando desde el cero. Esto es lo quen me exige el page
+//	Paginar:page=0, size =6 es la cantidad de paginas comenzando desde el cero. Esto es lo quen me exige el pageqablr
 	@GetMapping("/pagina")
 	public ResponseEntity<?> listar(Pageable pageable){
 		return ResponseEntity.ok().body(this.service.findAll(pageable));
