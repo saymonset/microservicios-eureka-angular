@@ -26,17 +26,18 @@ public class CommonController<E, S extends CommonService<E>> {
 	
 	@GetMapping
 	public ResponseEntity<?> listar(){
-		return ResponseEntity.ok().body(service.findAll());
+		return ResponseEntity.ok().body(this.service.findAll());
 	}
-	
+
+//	Paginar:page=0, size =6 es la cantidad de paginas comenzando desde el cero. Esto es lo quen me exige el page
 	@GetMapping("/pagina")
 	public ResponseEntity<?> listar(Pageable pageable){
-		return ResponseEntity.ok().body(service.findAll(pageable));
+		return ResponseEntity.ok().body(this.service.findAll(pageable));
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<?> ver(@PathVariable Long id){
-		Optional<E> o = service.findById(id);
+		Optional<E> o = this.service.findById(id);
 		if(o.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}
@@ -49,13 +50,13 @@ public class CommonController<E, S extends CommonService<E>> {
 		if(result.hasErrors()) {
 			return this.validar(result);
 		}
-		E entityDb = service.save(entity);
+		E entityDb = this.service.save(entity);
 		return ResponseEntity.status(HttpStatus.CREATED).body(entityDb);
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> eliminar(@PathVariable Long id){
-		service.deleteById(id);
+		this.service.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
 	
