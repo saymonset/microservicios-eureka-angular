@@ -42,7 +42,8 @@ public class AlumnoController extends CommonController<Alumno, AlumnoService>{
 				.contentType(MediaType.IMAGE_JPEG)
 				.body(imagen);
 	}
-	
+
+//	Validamos las entitys con @Valid, BindingResult
 	@PutMapping("/{id}")
 	public ResponseEntity<?> editar(@Valid @RequestBody Alumno alumno, BindingResult result, @PathVariable Long id){
 		
