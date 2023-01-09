@@ -24,7 +24,8 @@ public class Asignatura {
 	private Long id;
 	
 	private String nombre;
-	
+
+//	Aqui aplicamos forma de arbol
 	@JsonIgnoreProperties(value= {"hijos"})
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Asignatura padre;
@@ -38,7 +39,7 @@ public class Asignatura {
 	}
 
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Long id) {
@@ -46,7 +47,7 @@ public class Asignatura {
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public void setNombre(String nombre) {
@@ -54,7 +55,7 @@ public class Asignatura {
 	}
 
 	public Asignatura getPadre() {
-		return padre;
+		return this.padre;
 	}
 
 	public void setPadre(Asignatura padre) {
@@ -62,7 +63,7 @@ public class Asignatura {
 	}
 
 	public List<Asignatura> getHijos() {
-		return hijos;
+		return this.hijos;
 	}
 
 	public void setHijos(List<Asignatura> hijos) {
