@@ -80,7 +80,8 @@ public class CursoController extends CommonController<Curso, CursoService>{
 		Curso curso = o.get();
 		
 		if(curso.getCursoAlumnos().isEmpty() == false) {
-			
+
+//			Aqui nos devuelve un long con ca.getAlumnoId(), pero lo transformamos a una lista con .collect(Collectors.toList())
 			List<Long> ids = curso.getCursoAlumnos().stream().map(ca -> ca.getAlumnoId())
 					.collect(Collectors.toList());
 			
@@ -96,7 +97,7 @@ public class CursoController extends CommonController<Curso, CursoService>{
 	@GetMapping("/balanceador-test")
 	public ResponseEntity<?> balanceadorTest() {
 		Map<String, Object> response = new HashMap<String, Object>();
-		response.put("balanceador", balanceadorTest);
+		response.put("balanceador", this.balanceadorTest);
 		response.put("cursos", service.findAll());
 		return ResponseEntity.ok(response);
 	}
