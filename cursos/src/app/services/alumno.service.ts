@@ -18,6 +18,13 @@ export class AlumnoService {
     return this.http.get<Alumno[]>(this.baseEndpoint);
   }
 
+  public listarPaginas(page: string, size: string): Observable<any>{
+    const params = new HttpParams()
+    .set('page', page)
+    .set('size', size);
+    return this.http.get<any>(`${this.baseEndpoint}/pagina`, {params: params});
+  }
+
   public ver(id: number): Observable<Alumno> {
     return this.http.get<Alumno>(`${this.baseEndpoint}/${id}`);
   }

@@ -1,9 +1,0 @@
-
-v
-java:S2293b"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ã´¦¢8›Š“þÛ0
-=
-java:S1125R"'Remove the unnecessary boolean literal.(Ÿˆã§
-a
-java:S1155 ">Use isEmpty() to check whether the collection is empty or not.(ÏÙ™‡úÿÿÿÿ8¹Š“þÛ0
-H
-java:S1602¶",Remove useless curly braces around statement(†ÕÊ•ûÿÿÿÿ
